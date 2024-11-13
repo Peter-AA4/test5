@@ -13,7 +13,8 @@ export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
   function handleClick(i) {
-    if (squares[i]) {
+    if (squares[i] || calculateWinner(squares)) {
+
       return;
     }
     const nextSquares = squares.slice();
@@ -56,7 +57,7 @@ function calculateWinner(squares) {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    
+
     [2, 4, 6]
   ];
   for (let i = 0; i < lines.length; i++) {
